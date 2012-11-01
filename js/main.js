@@ -7,8 +7,6 @@ var req = requirejs.config({
 });
 
 require(['jquery'], function($) {
-
-        $('body').html('<em>hiiiiiiiiiiiii</em>');
-
+    alert('coocon');
 });
 
