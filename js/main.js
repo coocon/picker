@@ -8,7 +8,6 @@ var req = requirejs.config({
 
 require(['jquery'], function($) {
 
-    $('body').html('<em>hiiiiiiiiiiiii</em>');
     var url = location.href;
     if(url.match(/.*\.renren\.com/)) {
 
