@@ -1,31 +1,7 @@
 {
     "name": "pic picker",
     "version": "1.0",
-<<<<<<< HEAD
-    "description": "a browser action with a popup dump",
-    "browser_action": {
-        "default_icon":  "images/icon38.png",            // optional
-        "default_title": "pic picker",      // optional; shown in tooltip
-        "default_popup": "popup.html"        // optional
-    },
-    "manifest_version": 2,
-    "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'",
-    "permissions": [
-    
-        "tabs",
-        "http://*.renren.com/",
-        "http://*.google.com/",
-        "unlimitedStorage",
-        "notifications",
-        "history",
-        "geolocation",
-        "cookies",
-        "idle"
-    
-    ]
 
-
-=======
     "manifest_version": 2,
     "description": "a browser action with a popup dump",
     "content_scripts": [{
@@ -38,8 +14,13 @@
         "run_at": "document_end"
     }],
     "permissions": [
-        "http://*.renren.com/"
+        "http://*.renren.com/",
+        "unlimitedStorage",
+        "notifications",
+        "history",
+        "geolocation",
+        "cookies",
+        "idle"
     ]
->>>>>>> 817ae4cc82bd05ad781f7eca97c4bbbf59c8538c
 }
 
