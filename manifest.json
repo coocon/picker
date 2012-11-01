@@ -1,6 +1,7 @@
 {
     "name": "pic picker",
     "version": "1.0",
+<<<<<<< HEAD
     "description": "a browser action with a popup dump",
     "browser_action": {
         "default_icon":  "images/icon38.png",            // optional
@@ -24,5 +25,21 @@
     ]
 
 
+=======
+    "manifest_version": 2,
+    "description": "a browser action with a popup dump",
+    "content_scripts": [{
+        "matches": ["http://*.renren.com/*"],
+        "js": [
+            "js/require.js",
+            "js/jquery-1.8.2.js",
+            "js/main.js"
+        ],
+        "run_at": "document_end"
+    }],
+    "permissions": [
+        "http://*.renren.com/"
+    ]
+>>>>>>> 817ae4cc82bd05ad781f7eca97c4bbbf59c8538c
 }
 
