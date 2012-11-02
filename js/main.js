@@ -10,6 +10,7 @@ require.config({
 });
 
 require(['jquery', 'layout'], function($, layout) {
-    alert(layout);
+    // jquery和xn的$冲突。
+    $.noConflict();
 });
 
