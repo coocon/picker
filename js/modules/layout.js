@@ -1,3 +1,6 @@
-define([], function() {
+/*
+ *
+ */
+define([], function(net) {
     return 'layout';      
 });
