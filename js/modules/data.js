@@ -1,5 +1,6 @@
 /*
- * 获取数据
+ * 数据
+ * TODO 数据的存储 数据转化为model。 @coocon
  */
 
 define(['ajaxproxy'], function(ajaxproxy) {
