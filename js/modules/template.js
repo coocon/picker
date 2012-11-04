@@ -32,7 +32,29 @@ define([], function() {
             footUrl = url.substring(lastIndex + 1);
             return headUrl + middleUrl + footUrl;
              
-        }  
+        },  
+
+        getYear: function(year) {
+            return ({
+                '1': '壹', 
+                '2': '贰', 
+                '3': '叁', 
+                '4': '肆', 
+                '5': '伍', 
+                '6': '陆', 
+                '7': '柒', 
+                '8': '捌', 
+                '9': '玖' 
+            })[year];           
+        },
+
+        getYearTitle: function(year) {
+            return '上传于' + year + '年前的今天'; 
+        },
+
+        getProfile: function(userId) {
+            return 'http://www.renren.com/' + userId + '/profile'; 
+        }
     };
 
     return {
@@ -53,10 +75,24 @@ define([], function() {
             var t = '<div class="p-photo-item">\
                         <div class="p-photo-wrapper">\
                             <img src="" style="background-image:url(<%=url%>)"/>\
+                            <div class="p-photo-oper <%if (!hasTitle) {%>no-title<%}%>">\
+                                <a href="<%=profile%>" target="_blank" class="p-photo-user"><%=userName%></a>\
+                                <%if (hasTitle) {%>\
+                                <div class="p-photo-title" title="<%=originalTitle%>"><%=title%></div>\
+                                <%}%>\
+                            </div>\
                         </div>\
+                        <div class="p-photo-year" title="<%=yearTitle%>"><%=year%></div>\
                      </div>'; 
             return jqtpl(t, {
-                'url': this.helper.formatUrl(obj.largeUrl)         
+                'url': this.helper.formatUrl(obj.largeUrl), 
+                'year': this.helper.getYear(obj.nYear),
+                'yearTitle': this.helper.getYearTitle(obj.nYear),
+                'hasTitle': !!obj.originalTitle ? true : false,
+                'originalTitle': obj.originalTitle,
+                'title': obj.title,
+                'userName': obj.userName,
+                'profile': this.helper.getProfile(obj.userId)
             });
         }
     };

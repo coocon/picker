@@ -24,6 +24,7 @@ define(function() {
                 $(document.body).css({
                     'overflow': 'hidden' 
                 }); 
+                console.log(model);
                 new layout(model);  
             });
         });
