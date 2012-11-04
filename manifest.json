@@ -5,6 +5,9 @@
     "description": "a browser action with a popup dump",
     "content_scripts": [{
         "matches": ["http://*.renren.com/*"],
+        "css": [
+            "css/index.css"
+        ],
         "js": [
             "js/inject.js"
         ],

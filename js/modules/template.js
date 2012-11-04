@@ -15,22 +15,49 @@ define([], function() {
             return data ? fn(data) : fn;
         };
         return _inner(str, data);
+    },
+
+    helper = {
+        //调用人人的缩图服务 
+        //type 代表缩图类型 
+        formatUrl: function(url, type) {
+            var list = {
+                '252': 'p/m2w252hq85lt_',
+                '400': 'p/m2w400h400q85lt_'
+            }, 
+            type = type ? type.toString() : '252',
+            lastIndex = url.lastIndexOf('/'),
+            headUrl = url.substring(0, lastIndex + 1),
+            middleUrl = list[type],
+            footUrl = url.substring(lastIndex + 1);
+            return headUrl + middleUrl + footUrl;
+             
+        }  
     };
 
     return {
+
+        helper: helper,
+
         //app的框架
         frame: function(obj) {
-            var t = '<div class="">\
+            var t = '<div class="p-container">\
+                        <div class="p-photo-list">\
+                        </div>\
                      </div>'; 
             return jqtpl(t, obj);
         }, 
 
         //单张照片
         photo: function(obj) {
-            var t = '<div class="" style="width:200px;height:200px;margin-right:10px;float:left;">\
-                        <img src="<%=mainUrl%>"/>\
+            var t = '<div class="p-photo-item">\
+                        <div class="p-photo-wrapper">\
+                            <img src="" style="background-image:url(<%=url%>)"/>\
+                        </div>\
                      </div>'; 
-            return jqtpl(t, obj);
+            return jqtpl(t, {
+                'url': this.helper.formatUrl(obj.largeUrl)         
+            });
         }
     };
 });

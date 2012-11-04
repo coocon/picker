@@ -20,8 +20,11 @@ define(function() {
         if (!window.asyncHTMLManager) return;
         //向photo请求历史上的今天的数据
         data.getData(function(model) {
-            mask.fadeIn({}, function(view) {
-                new layout(view, model);  
+            mask.fadeIn({}, function() {
+                $(document.body).css({
+                    'overflow': 'hidden' 
+                }); 
+                new layout(model);  
             });
         });
     })
