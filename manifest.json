@@ -14,8 +14,11 @@
         "js/require.js",
         "js/main.js",
         "js/modules/jquery-1.8.2.js",
+        "js/modules/mask.js",
         "js/modules/ajaxproxy.js",
-        "js/modules/layout.js"
+        "js/modules/template.js",
+        "js/modules/layout.js",
+        "js/modules/data.js"
     ],
     "permissions": [
         "http://*.renren.com/",
