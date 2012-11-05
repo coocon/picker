@@ -6,7 +6,10 @@
     var s = document.createElement('script');
     s.src = chrome.extension.getURL('js/require.js');
     s.setAttribute('data-main', chrome.extension.getURL('js/main'));
-    s.onload = function(){};
+    s.onload = function(){
+        var root = chrome.extension.getURL('');
+        localStorage.setItem('_picker_root', root);
+    };
     (document.head||document.documentElement).appendChild(s);
     //添加CSS
     var c = document.createElement('style');

@@ -10,7 +10,8 @@ define(function() {
             'ajaxproxy': 'modules/ajaxproxy',
             'data': 'modules/data',
             'template': 'modules/template',
-            'layout': 'modules/layout'
+            'layout': 'modules/layout',
+            'notify': 'modules/notify'
         }
     });
 
@@ -29,4 +30,18 @@ define(function() {
             });
         });
     })
+    //test notify 
+    require(['jquery', 'notify'], function($, notify){
+
+        $.noConflict();
+        $(document).click(function() {
+            if(notify) {
+                notify.show({
+                    title:'hi',
+                    content: 'hello,world'
+                }); 
+            }  
+        });
+       
+    });
 });
