@@ -5,6 +5,9 @@
     "description": "a browser action with a popup dump",
     "content_scripts": [{
         "matches": ["http://*.renren.com/*"],
+        "css": [
+            "css/index.css"     
+        ],
         "js": [
             "js/inject.js"
         ],
@@ -18,7 +21,8 @@
         "js/modules/ajaxproxy.js",
         "js/modules/template.js",
         "js/modules/layout.js",
-        "js/modules/data.js"
+        "js/modules/data.js",
+        "images/year-icon.png"
     ],
     "permissions": [
         "http://*.renren.com/",

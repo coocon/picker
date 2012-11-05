@@ -5,14 +5,11 @@
 define(['jquery'], function($) {
     var _maskEl,
     mask = function(op) {
-        return $('<div></div>')
+        return $('<div class="p-mask"></div>')
         .appendTo(document.body)
         .css({
-            'position': 'absolute',   
-            'left': '0',
-            'top': '0',
-            'width': $(document).width(), 
-            'height': $(document).height(), 
+            'width': $(window).width(), 
+            'height': $(window).height(), 
             'z-index': op.z,
             'background-color': op.bgcolor, 
             'opacity': 0 
@@ -21,7 +18,7 @@ define(['jquery'], function($) {
     defaultVal = function(options) {
         return  $.extend({ 
             opacity: 0.8, 
-            z: 10000, 
+            z: 6666, 
             bgcolor: '#000' 
         }, options); 
     };
