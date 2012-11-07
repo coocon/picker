@@ -11,6 +11,24 @@
     overflow:scroll;
     z-index: 8888;
 }
+.p-container .p-close {
+    display: block;
+    position: fixed;
+    z-index: 99;
+    right: 20px;
+    top: 15px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    width: 13px;
+    height: 13px;
+    overflow: hidden;
+    font-size: 0;
+    letter-spacing: 0;
+    -webkit-text-size-adjust: none;
+}
+.p-container .p-close:hover {
+    background-position-y: -28px;
+}
 .p-photo-list {
     margin: 30px auto;
     min-height: 100px;

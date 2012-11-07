@@ -10,7 +10,8 @@ define(function() {
             'ajaxproxy': 'modules/ajaxproxy',
             'data': 'modules/data',
             'template': 'modules/template',
-            'layout': 'modules/layout'
+            'layout': 'modules/layout',
+            'Events': 'modules/events'
         }
     });
 
@@ -24,8 +25,13 @@ define(function() {
                 $(document.body).css({
                     'overflow': 'hidden' 
                 }); 
-                console.log(model);
-                new layout(model);  
+                new layout(model)
+                .bind('close', function() {
+                    mask.fadeOut();
+                    $(document.body).css({
+                        'overflow': 'auto' 
+                    }); 
+                });
             });
         });
     })

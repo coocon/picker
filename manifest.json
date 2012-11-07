@@ -22,7 +22,9 @@
         "js/modules/template.js",
         "js/modules/layout.js",
         "js/modules/data.js",
-        "images/year-icon.png"
+        "js/modules/events.js",
+        "images/year-icon.png",
+        "images/close-icon.png"
     ],
     "permissions": [
         "http://*.renren.com/",

@@ -66,6 +66,7 @@ define([], function() {
             var t = '<div class="p-container">\
                         <div class="p-photo-list">\
                         </div>\
+                        <a href="javascript:;" class="p-close" hidefocus="true" title="关闭">关闭</a>\
                      </div>'; 
             return jqtpl(t, obj);
         }, 
