@@ -37,22 +37,22 @@ define(['jquery'], function($) {
         } else if( window.webkitNotifications.checkPermission() == 0) {
             notification = webkitNotifications.createNotification(
                 param.icon,  // icon url - can be relative
-				param.title,  // notification title
-				param.content // notification content
-			);
-			notification.show(param);
+                param.title,  // notification title
+                param.content // notification content
+            );
+            notification.show(param);
             if(param.timeout) {
                 setTimeout(function() {
                     notification.cancel();
                 }, param.timeout);
             }
-			return true;
-		} else {
+            return true;
+        } else {
             //不被允许 弹出chrome notify，则调用自己的notify
             simpleNotify(param);
-			return false;
-		}
-	},
+            return false;
+        }
+    },
     /**
      * hide notify
      */

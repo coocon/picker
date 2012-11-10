@@ -12,7 +12,7 @@ define(function() {
             'template': 'modules/template',
             'layout': 'modules/layout',
             'notify': 'modules/notify',
-            'storage': 'modules/storage'
+            'storage': 'modules/storage-client'
         }
     });
 

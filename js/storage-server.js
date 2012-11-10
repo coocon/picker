@@ -79,7 +79,6 @@
                 json = me.parse(eventData);
                 if(json.method == 'set') {
                     me.storage.set(json.key, json.value, function(value) {
-                        console.log('server save ok............................................');
                         if(json.id) {
                             me.response(json.id, value); 
                         }
