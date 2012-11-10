@@ -9,7 +9,8 @@
             "css/index.css"     
         ],
         "js": [
-            "js/inject.js"
+            "js/inject.js",
+            "js/storage-server.js"
         ],
         "run_at": "document_end"
     }],
@@ -23,6 +24,7 @@
         "js/modules/layout.js",
         "js/modules/data.js",
         "js/modules/notify.js",
+        "js/modules/storage-client.js",
         "images/year-icon.png",
         "images/rr-icon.png"
 
@@ -30,11 +32,11 @@
     "permissions": [
         "http://*.renren.com/",
         "unlimitedStorage",
+        "storage",
         "notifications",
         "history",
         "geolocation",
-        "cookies",
-        "idle"
+        "cookies"
     ]
 }
 
