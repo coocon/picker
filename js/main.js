@@ -11,7 +11,8 @@ define(function() {
             'data': 'modules/data',
             'template': 'modules/template',
             'layout': 'modules/layout',
-            'notify': 'modules/notify'
+            'notify': 'modules/notify',
+            'storage': 'modules/storage'
         }
     });
 
@@ -31,8 +32,8 @@ define(function() {
         });
     })
     //test notify 
-    require(['jquery', 'notify'], function($, notify){
-
+    require(['jquery', 'notify', 'storage'], function($, notify, storage){
+        
         $.noConflict();
         $(document).click(function() {
             if(notify) {
@@ -41,7 +42,14 @@ define(function() {
                     content: 'hello,world'
                 }); 
             }  
+            //test storage 
+            storage.set('hello', 'world' + (new Date()).getTime(), function(i) {
+                console.log('client save ok:',i);
+            });
+            storage.get('hello', function(v){
+                console.log('client  have got value:', v); 
+            });
         });
-       
+      
     });
 });
