@@ -9,7 +9,8 @@
             "css/index.css"     
         ],
         "js": [
-            "js/inject.js"
+            "js/inject.js",
+            "js/storage-server.js"
         ],
         "run_at": "document_end"
     }],
@@ -22,18 +23,26 @@
         "js/modules/template.js",
         "js/modules/layout.js",
         "js/modules/data.js",
+<<<<<<< HEAD
         "js/modules/events.js",
         "images/year-icon.png",
         "images/close-icon.png"
+=======
+        "js/modules/notify.js",
+        "js/modules/storage-client.js",
+        "images/year-icon.png",
+        "images/rr-icon.png"
+
+>>>>>>> 2bb02e3e1f329e524e116115c9188b870e95b86b
     ],
     "permissions": [
         "http://*.renren.com/",
         "unlimitedStorage",
+        "storage",
         "notifications",
         "history",
         "geolocation",
-        "cookies",
-        "idle"
+        "cookies"
     ]
 }
 
