@@ -1,10 +1,11 @@
 /*
  * 布局
  */
-define(['jquery', 'template', 'Events'], function($, template, Events) {
+define(['jquery', 'template', 'Events', 'mask'], function($, template, Events, mask) {
     var layout = function(model) {
         this.model = model;
-        this.init(); 
+        this.bindEvent();
+        this.trigger('open', this);
     };
 
     layout.prototype = {
@@ -23,19 +24,38 @@ define(['jquery', 'template', 'Events'], function($, template, Events) {
 
         init: function() {
             this.view = $(this.template.frame({}))
-                        .css({
-                            'height': $(window).height()     
-                        })
-                        .appendTo(document.body);
+                .css({
+                    'height': $(window).height()     
+                })
+                .appendTo(document.body);
             this.refreshElements();
             this.delegateEvents();
             this.initList();
+        },
+
+        //自定义事件
+        bindEvent: function() {
+            this.bind('open', function(me) {
+                mask.fadeIn({}, function() {      
+                    $(document.body).css({                                                                                    
+                        'overflow': 'hidden'                                                                                  
+                    });  
+                    me.init();
+                });
+            });  
+            this.bind('close', function() {
+                mask.fadeOut();  
+                $(document.body).css({                                                                                
+                    'overflow': 'auto'                                                                                
+                });   
+            });
         },
 
         refreshElements: function() {
             for (var key in this.elements) {
                 this[this.elements[key]] = $(key, this.view); 
             }
+            this.trigger('render', this);
         },
 
         delegateEvents: function() {

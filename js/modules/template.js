@@ -75,7 +75,7 @@ define([], function() {
         photo: function(obj) {
             var t = '<div class="p-photo-item">\
                         <div class="p-photo-wrapper">\
-                            <img src="" style="background-image:url(<%=url%>)"/>\
+                            <img src="http://s.xnimg.cn/a.gif" data-original="<%=url%>" class="lazy"/>\
                             <div class="p-photo-oper <%if (!hasTitle) {%>no-title<%}%>">\
                                 <a href="<%=profile%>" target="_blank" class="p-photo-user"><%=userName%></a>\
                                 <%if (hasTitle) {%>\

@@ -18,22 +18,18 @@
         "js/require.js",
         "js/main.js",
         "js/modules/jquery-1.8.2.js",
+        "js/modules/jquery.lazyload.js",
         "js/modules/mask.js",
         "js/modules/ajaxproxy.js",
         "js/modules/template.js",
         "js/modules/layout.js",
         "js/modules/data.js",
-<<<<<<< HEAD
         "js/modules/events.js",
-        "images/year-icon.png",
-        "images/close-icon.png"
-=======
         "js/modules/notify.js",
         "js/modules/storage-client.js",
+        "images/close-icon.png",
         "images/year-icon.png",
         "images/rr-icon.png"
-
->>>>>>> 2bb02e3e1f329e524e116115c9188b870e95b86b
     ],
     "permissions": [
         "http://*.renren.com/",
