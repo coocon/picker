@@ -54,6 +54,13 @@ define([], function() {
 
         getProfile: function(userId) {
             return 'http://www.renren.com/' + userId + '/profile'; 
+        },
+
+        getShareData: function(obj) {
+            var url = 'http://photo.renren.com/photo/' + obj.userId + '/photo-' + obj.photoId;
+            //返回的JSON语法必须符合JSON的语法规范，否则使用JSON.parse在浏览器解析的时候会报错哦
+            //先将title使用encodeURIComponent转化，否则有些特殊字符无法转化。
+            return '{&quot;site&quot;:&quot;人人网&quot;,&quot;pic&quot;:&quot;' + obj.mainUrl + '&quot;,&quot;desc&quot;:&quot;' + encodeURIComponent(obj.title) + '&quot;,&quot;url&quot;:&quot;' + url + '&quot;,&quot;userName&quot;:&quot;' +obj.userName+ '&quot;,&quot;nYear&quot;:&quot;' + obj.nYear + '&quot;}'; 
         }
     };
 
@@ -66,6 +73,7 @@ define([], function() {
             var t = '<div class="p-container">\
                         <div class="p-photo-list">\
                         </div>\
+                        <a href="javascript:;" class="p-close" hidefocus="true" title="关闭">关闭</a>\
                      </div>'; 
             return jqtpl(t, obj);
         }, 
@@ -74,12 +82,19 @@ define([], function() {
         photo: function(obj) {
             var t = '<div class="p-photo-item">\
                         <div class="p-photo-wrapper">\
-                            <img src="" style="background-image:url(<%=url%>)"/>\
+                            <img src="http://s.xnimg.cn/a.gif" data-original="<%=url%>" class="lazy"/>\
                             <div class="p-photo-oper <%if (!hasTitle) {%>no-title<%}%>">\
                                 <a href="<%=profile%>" target="_blank" class="p-photo-user"><%=userName%></a>\
                                 <%if (hasTitle) {%>\
                                 <div class="p-photo-title" title="<%=originalTitle%>"><%=title%></div>\
                                 <%}%>\
+                                <div class="p-photo-share" data-share="<%=shareData%>">\
+                                    <ul class="p-photo-share-list">\
+                                        <li class="p-photo-share-item share-action share-weiboSina" title="分享到新浪微博" data-sharename="weiboSina"></li>\
+                                        <li class="p-photo-share-item share-action share-weiboQQ" title="分享到腾讯微博" data-sharename="weiboQQ"></li>\
+                                        <li class="p-photo-share-item share-action share-qzone" title="分享到QQ空间" data-sharename="qzone"></li>\
+                                    </ul>\
+                                </div>\
                             </div>\
                         </div>\
                         <div class="p-photo-year" title="<%=yearTitle%>"><%=year%></div>\
@@ -92,7 +107,8 @@ define([], function() {
                 'originalTitle': obj.originalTitle,
                 'title': obj.title,
                 'userName': obj.userName,
-                'profile': this.helper.getProfile(obj.userId)
+                'profile': this.helper.getProfile(obj.userId),
+                'shareData': this.helper.getShareData(obj)
             });
         }
     };

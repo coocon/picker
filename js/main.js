@@ -11,28 +11,34 @@ define(function() {
             'data': 'modules/data',
             'template': 'modules/template',
             'layout': 'modules/layout',
+            'Events': 'modules/events',
+            'share': 'modules/share',
             'notify': 'modules/notify',
             'storage': 'modules/storage-client'
         }
     });
 
-    require(['jquery', 'mask', 'layout', 'data'], function($, mask, layout, data) {
+    require(['jquery', 'layout', 'data'], function($, layout, data) {
         // jquery和xn的$冲突。
         $.noConflict();
         if (!window.asyncHTMLManager) return;
         //向photo请求历史上的今天的数据
         data.getData(function(model) {
-            mask.fadeIn({}, function() {
-                $(document.body).css({
-                    'overflow': 'hidden' 
-                }); 
-                console.log(model);
-                new layout(model);  
+            new layout(model)
+            .bind('render', function(me) {
+                requirejs.load({
+                    'onScriptLoad': function() {
+                        jQuery('img.lazy').lazyload({
+                            'container': me.view,    
+                            'effect': 'fadeIn'
+                        }); 
+                    }     
+                }, 'lazyload', requirejs.toUrl('modules/jquery.lazyload.js'));
             });
         });
     })
     //test notify 
-    require(['jquery', 'notify', 'storage'], function($, notify, storage){
+    /*require(['jquery', 'notify', 'storage'], function($, notify, storage){
         
         $.noConflict();
         $(document).click(function() {
@@ -51,5 +57,5 @@ define(function() {
             });
         });
       
-    });
+    });*/
 });
