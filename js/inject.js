@@ -14,7 +14,11 @@
     //添加CSS
     var c = document.createElement('style');
     c.setAttribute('type', 'text/css');
-    var cssstring = '.p-photo-year{ background-image:url(' + chrome.extension.getURL('images/year-icon.png') + ');}';
+    var cssstring = ['.p-photo-year{background-image:url(' + chrome.extension.getURL('images/year-icon.png') + ');}',
+                     '.p-close{background-image:url(' + chrome.extension.getURL('images/close-icon.png') + ');}', 
+                     '.p-photo-wrapper{background-image:url(' + chrome.extension.getURL('images/loading-icon.gif') + ');}',
+                     '.p-photo-share-item{background-image:url(' + chrome.extension.getURL('images/share-icon.png') + ');}'
+                    ].join('');
     c.appendChild(document.createTextNode(cssstring));
     (document.head||document.documentElement).appendChild(c);
 })();

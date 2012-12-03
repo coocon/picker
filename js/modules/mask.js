@@ -29,6 +29,14 @@ define(['jquery'], function($) {
             _maskEl.fadeTo('slow', op.opacity, function() {
                 callback(_maskEl);
             });
-        }    
+        },    
+
+        fadeOut: function(callback) {
+            callback = callback || function() {};
+            _maskEl.fadeTo('slow', 0, function() {
+                callback();
+                _maskEl.remove();      
+            }); 
+        }
     } 
 });
