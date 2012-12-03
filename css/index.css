@@ -131,7 +131,7 @@
 /*.p-photo-list .p-photo-item:hover .p-photo-share .p-photo-share-item {
 }*/
 .p-photo-list .p-photo-item .p-photo-share .p-photo-share-item {
-    background:url('http://r.ph.126.net/share/images/ico/ico_x100_p32.png');
+    /*background:url('http://r.ph.126.net/share/images/ico/ico_x100_p32.png');*/
     float:left;
     width:25px;
     height:25px;
