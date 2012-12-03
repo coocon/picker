@@ -25,10 +25,12 @@
         "js/modules/layout.js",
         "js/modules/data.js",
         "js/modules/events.js",
+        "js/modules/share.js",
         "js/modules/notify.js",
         "js/modules/storage-client.js",
         "images/close-icon.png",
         "images/year-icon.png",
+        "images/loading-icon.gif",
         "images/rr-icon.png"
     ],
     "permissions": [

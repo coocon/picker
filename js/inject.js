@@ -15,7 +15,8 @@
     var c = document.createElement('style');
     c.setAttribute('type', 'text/css');
     var cssstring = ['.p-photo-year{background-image:url(' + chrome.extension.getURL('images/year-icon.png') + ');}',
-                     '.p-close {background-image:url(' + chrome.extension.getURL('images/close-icon.png') + ');}' 
+                     '.p-close{background-image:url(' + chrome.extension.getURL('images/close-icon.png') + ');}', 
+                     '.p-photo-wrapper{background-image:url(' + chrome.extension.getURL('images/loading-icon.gif') + ');}'
                     ].join('');
     c.appendChild(document.createTextNode(cssstring));
     (document.head||document.documentElement).appendChild(c);

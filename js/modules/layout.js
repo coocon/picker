@@ -1,7 +1,8 @@
 /*
  * 布局
+ * 程序主逻辑，包括事件的监听和响应。
  */
-define(['jquery', 'template', 'Events', 'mask'], function($, template, Events, mask) {
+define(['jquery', 'template', 'Events', 'mask', 'share'], function($, template, Events, mask, share) {
     var layout = function(model) {
         this.model = model;
         this.bindEvent();
@@ -19,7 +20,8 @@ define(['jquery', 'template', 'Events', 'mask'], function($, template, Events, m
         },
 
         events: {
-            'click .p-close': 'close' 
+            'click .p-close': 'close',
+            'click .share-action': 'doShare'
         },
 
         init: function() {
@@ -83,7 +85,17 @@ define(['jquery', 'template', 'Events', 'mask'], function($, template, Events, m
         close: function() {
             this.trigger('close', this);
             this.view.remove();
-        }
+        },
+
+        doShare: function(e) {
+            var target = e.target,
+            shareName = target.getAttribute('data-sharename'), 
+            shareData = JSON.parse(target.parentNode.parentNode.getAttribute('data-share'));
+            //decode一下，否则是乱码。
+            shareData.desc = decodeURIComponent(shareData.desc);
+            //调用share module的方法。
+            share[shareName](shareData);
+        },
     };
     $.extend(layout.prototype, Events);
     return layout;

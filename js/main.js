@@ -12,6 +12,7 @@ define(function() {
             'template': 'modules/template',
             'layout': 'modules/layout',
             'Events': 'modules/events',
+            'share': 'modules/share',
             'notify': 'modules/notify',
             'storage': 'modules/storage-client'
         }
