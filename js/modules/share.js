@@ -46,6 +46,18 @@ define('share', [], function() {
                 'pics': data.pic
             };
             window.open(url + stringifyParams(obj));
+        },
+        'weiboSina': function(data) {
+            var url = 'http://service.weibo.com/share/share.php?',
+            title = getTitle(data),
+            obj = {
+                'type': 3,
+                'url': data.url, 
+                'appkey': '4120399713', 
+                'title': title,
+                'pic': data.pic
+            };
+            window.open(url + stringifyParams(obj));
         }
     }        
 });
